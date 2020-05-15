@@ -5,3 +5,5 @@ output=$2
 
 echo "Comparing $input with country data" > $output
 cat $input >> $output
+
+sleep 20
