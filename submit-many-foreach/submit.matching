@@ -1,7 +1,7 @@
 universe = vanilla
-log = $(Cluster)_$(Process).log
-error = $(Cluster)_$(Process).err
-output = $(Cluster)_$(Process).out
+log = job.$(ClusterId).$(ProcId).log
+error = job.$(ClusterId).$(ProcId).stderr
+output = job.$(ClusterId).$(ProcId).stdout
 
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
@@ -14,4 +14,4 @@ executable = compare_states
 arguments = $(state) out.$(state)
 transfer_input_files = $(state), country.us.dat
 
-queue state matching input-data/*dat
+queue state matching state.*.dat

@@ -1,7 +1,7 @@
 universe = vanilla
-log = $(Cluster)_$(Process).log
-error = $(Cluster)_$(Process).stderr
-output = $(Cluster)_$(Process).stdout
+log = job.$(ClusterId).$(ProcId).log
+error = job.$(ClusterId).$(ProcId).stderr
+output = job.$(ClusterId).$(ProcId).stdout
 
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
