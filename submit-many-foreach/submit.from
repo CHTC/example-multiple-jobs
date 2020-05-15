@@ -1,0 +1,17 @@
+universe = vanilla
+log = $(Cluster)_$(Process).log
+error = $(Cluster)_$(Process).stderr
+output = $(Cluster)_$(Process).stdout
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+request_cpus = 1
+request_memory = 1GB
+request_disk = 512MB
+
+executable = compare_states
+arguments = $(state) out.$(state)
+transfer_input_files = $(state), country.us.dat
+
+queue state from list.txt
