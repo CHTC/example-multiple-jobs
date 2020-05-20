@@ -1,17 +1,21 @@
+# Default Settings
 universe = vanilla
-log = $(Cluster)_$(ProcId).log
-error = $(Cluster)_$(ProcId).stderr
-output = $(Cluster)_$(ProcId).stdout
-
 should_transfer_files = YES
 when_to_transfer_output = ON_EXIT
 
+# Resource Requests
 request_cpus = 1
 request_memory = 1GB
 request_disk = 512MB
 
+# Command and Input Files
 executable = analyze.sh
-arguments = $(ProcId).in $(ProcId).out
-transfer_input_files = $(ProcId).in
+arguments = file.$(ProcId).in file.$(ProcId).out
+transfer_input_files = file.$(ProcId).in
+
+# Job Output Files
+log = $(Cluster)_$(ProcId).log
+error = $(Cluster)_$(ProcId).stderr
+output = $(Cluster)_$(ProcId).stdout
 
 queue 5
