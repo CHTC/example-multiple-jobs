@@ -1,14 +1,20 @@
+# Default Settings
 universe = vanilla
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+# Resource Requests
+request_cpus = 1
+request_memory = 1GB
+request_disk = 512MB
+
+# Job Output Files
+
 log = job.$(ClusterId).$(ProcId).log
 error = job.$(ClusterId).$(ProcId).stderr
 output = job.$(ClusterId).$(ProcId).stdout
 
-should_transfer_files = YES
-when_to_transfer_output = ON_EXIT
-
-request_cpus = 1
-request_memory = 1GB
-request_disk = 512MB
+# Command and Input Files
 
 executable = compare_states
 arguments = $(state) out.$(state)
