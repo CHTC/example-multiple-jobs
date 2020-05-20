@@ -1,0 +1,11 @@
+#!/bin/bash
+
+state=$2
+year=$4
+INPUTF=state.$state.dat
+OUTPUTF=results.$state.$year.dat
+
+echo "Comparing $state with country data in $year" > $OUTPUTF
+grep $year $INPUTF >> $OUTPUTF
+
+sleep 20

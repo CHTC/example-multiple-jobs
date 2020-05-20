@@ -1,0 +1,28 @@
+# Default Settings
+universe = vanilla
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+
+# Resource Requests
+request_cpus = 1
+request_memory = 1GB
+request_disk = 512MB
+
+# Job Output Files
+# note that we need the ../ because the logs directory
+# is in the parent directory of the "initialdir" (set below)
+log = ../logs/job.$(ClusterId).$(ProcId).log
+error = ../logs/job.$(ClusterId).$(ProcId).stderr
+output = ../logs/job.$(ClusterId).$(ProcId).stdout
+
+# Command and Input Files
+
+executable = compare_states
+arguments = -s $(state) -y $(year)
+
+initialdir = state-$(state)
+# the transfer_input_files paths will be relative to 
+# the initialdir
+transfer_input_files = state.$(state).dat, ../shared/
+
+queue state,year from jobs.txt
